@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/switchery.css" %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static "js/switchery.js" %}"></script>
+    <script src="{% static "js/bootstrap.js" %}"></script>
+    <script src="{% static "js/common.js" %}"></script>
+</head>
+<body style="background: #f5f5f5">
+    <form id="form" action="">
+        {% csrf_token %}
+        帳號
+        <input type="text" name="username" required>
+        <br>
+        密碼
+        <input type="password" name="password" required>
+        <button type="submit" class="btn-primary btn">登入</button>
+        <button type="button" class="btn-secondary btn" onclick="">忘記密碼</button>
+    </form>
+</body>
+</html>
+<script>
+    $(document).on('submit','form',function(){
+        var $form = $(this);
+
+        var formData = $form.serializeArray();;
+
+        $.ajax({
+            url: '{% url 'manage_login_check_user' %}',
+            method: 'POST',
+            data: formData,
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        }).done(function(data) {
+            var status = data.status;
+            if(status=='OK') {
+                alert('登入成功');
+                var url = data.url;
+                if(url!='')
+                    window.location.href = url;
+                else
+                    window.location.reload();
+            }else {
+                alert(data.msg);
+            }
+        });
+        return false;
+    });
+
+    // using jQuery
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+    console.log(csrftoken);
+    function csrfSafeMethod(method) {
+        // 这些HTTP方法不要求CSRF包含
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+</script>

@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6134c6fd-d9c8-43bd-a22c-a5003833cd57" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1728220033">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.54" value="1" />
+          <entry key="project.opened" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="JPG" value="27" />
+          <entry key="css" value="11" />
+          <entry key="git" value="1" />
+          <entry key="html" value="40" />
+          <entry key="jpg" value="7" />
+          <entry key="js" value="9" />
+          <entry key="png" value="2" />
+          <entry key="py" value="111" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="11" />
+          <entry key="HTML" value="40" />
+          <entry key="Image" value="36" />
+          <entry key="JavaScript" value="9" />
+          <entry key="Python" value="111" />
+          <entry key="UNKNOWN" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Django Console" value="341" />
+          <entry key="css" value="18" />
+          <entry key="html" value="2804" />
+          <entry key="js" value="2" />
+          <entry key="py" value="6026" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="18" />
+          <entry key="HTML" value="2804" />
+          <entry key="JavaScript" value="2" />
+          <entry key="Python" value="6367" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/manage/product/product_edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1058">
+              <caret line="157" column="51" lean-forward="true" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/manage/product/product_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="36" column="66" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app_manage_product/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="178" column="34" lean-forward="true" selection-start-line="178" selection-start-column="34" selection-end-line="178" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <marker date="1543551383417" expanded="true" signature="1936:1937" ph="..." />
+                <marker date="1543551383417" expanded="true" signature="7349:7350" ph="..." />
+                <marker date="1543551383417" expanded="true" signature="8265:8266" ph="..." />
+                <marker date="1543551383417" expanded="true" signature="8631:8632" ph="..." />
+                <marker date="1543551383417" expanded="true" signature="9297:9298" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/upload_helper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1752">
+              <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#3033#3059#0" />
+                <marker date="1543551214100" expanded="true" signature="312:317" ph="..." />
+                <marker date="1543551214100" expanded="true" signature="6740:6746" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_manage_product/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="57" lean-forward="true" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_manage_product/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>products</find>
+      <find>object</find>
+      <find>objects</find>
+      <find>extension</find>
+      <find>image</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>users</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app_manage_product/admin.py" />
+        <option value="$PROJECT_DIR$/app_manage_home/models.py" />
+        <option value="$PROJECT_DIR$/app_manage_home/admin.py" />
+        <option value="$PROJECT_DIR$/templates/manage/product_list.html" />
+        <option value="$PROJECT_DIR$/app_manage_admin_user/urls.py" />
+        <option value="$PROJECT_DIR$/templates/manage/admin_user_edit.html" />
+        <option value="$PROJECT_DIR$/templates/manage/admin_user_add.html" />
+        <option value="$PROJECT_DIR$/templates/manage/product_add.html" />
+        <option value="$PROJECT_DIR$/templates/manage/product_edit.html" />
+        <option value="$PROJECT_DIR$/templates/manage/admin_user_list.html" />
+        <option value="$PROJECT_DIR$/app_manage_admin_user/models.py" />
+        <option value="$PROJECT_DIR$/app_system/models.py" />
+        <option value="$PROJECT_DIR$/templates/404.html" />
+        <option value="$PROJECT_DIR$/templates/manage/admin_user/admin_user_edit.html" />
+        <option value="$PROJECT_DIR$/templates/manage/admin_user/admin_user_add.html" />
+        <option value="$PROJECT_DIR$/app_manage_login/urls.py" />
+        <option value="$PROJECT_DIR$/templates/manage/home.html" />
+        <option value="$PROJECT_DIR$/app_manage_home/urls.py" />
+        <option value="$PROJECT_DIR$/app_manage_admin_user/__init__.py" />
+        <option value="$PROJECT_DIR$/app_manage_home/views.py" />
+        <option value="$PROJECT_DIR$/app_manage_admin_user/user_decorator.py" />
+        <option value="$PROJECT_DIR$/app_manage_login/views.py" />
+        <option value="$PROJECT_DIR$/app_manage_admin_user/user_premission.py" />
+        <option value="$PROJECT_DIR$/app_manage_admin_user/views.py" />
+        <option value="$PROJECT_DIR$/app_manage_home/__init__.py" />
+        <option value="$PROJECT_DIR$/app_manage_product/__init__.py" />
+        <option value="$PROJECT_DIR$/templates/manage/include_header.html" />
+        <option value="$PROJECT_DIR$/templates/manage/product/include_tool_bar.html" />
+        <option value="$PROJECT_DIR$/templates/manage/login.html" />
+        <option value="$PROJECT_DIR$/static/jQuery-File-Upload-9.28.0/js/main.js" />
+        <option value="$PROJECT_DIR$/static/jQuery-File-Upload-9.28.0/css/style.css" />
+        <option value="$PROJECT_DIR$/static/css/style.css" />
+        <option value="$PROJECT_DIR$/templates/manage/manage_base.html" />
+        <option value="$PROJECT_DIR$/templates/manage/product/product_add.html" />
+        <option value="$PROJECT_DIR$/django_shopping_mall/settings.py" />
+        <option value="$PROJECT_DIR$/django_shopping_mall/urls.py" />
+        <option value="$PROJECT_DIR$/app_manage_product/urls.py" />
+        <option value="$PROJECT_DIR$/templates/manage/product/product_edit.html" />
+        <option value="$PROJECT_DIR$/app_manage_product/models.py" />
+        <option value="$PROJECT_DIR$/upload_helper.py" />
+        <option value="$PROJECT_DIR$/app_manage_product/views.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="app_manage_product" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="media" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="filiuploader2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="product" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="OPEN_URL_DIALOG">
+      <recent name="https://github.com/sigurdga/django-jquery-file-upload.git" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app_manage_product" />
+      <recent name="$PROJECT_DIR$/templates/manage/product" />
+      <recent name="$PROJECT_DIR$/templates/manage/admin_user" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/app_manage_home" />
+      <recent name="$PROJECT_DIR$/templates/manage" />
+      <recent name="$PROJECT_DIR$/app_manage_login" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="django_shopping_mall" type="Python.DjangoServer" factoryName="Django server">
+      <module name="django_shopping_mall" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="django_shopping_mall.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6134c6fd-d9c8-43bd-a22c-a5003833cd57" name="Default Changelist" comment="" />
+      <created>1541127234834</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541127234834</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14643237" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3046632" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32953367" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32227978" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32953367" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" weight="0.31043664" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/static/jQuery-File-Upload-9.28.0/css/jquery.fileupload-ui-noscript.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/jQuery-File-Upload-9.28.0/css/jquery.fileupload-ui.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/jQuery-File-Upload-9.28.0/css/jquery.fileupload-noscript.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/jQuery-File-Upload-9.28.0/css/jquery.fileupload.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/jQuery-File-Upload-9.28.0/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/jQuery-File-Upload-9.28.0/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-336">
+          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/jQuery-File-Upload-9.28.0/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2429" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/product/560960644.553581.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/product/560960627.734007.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/product/560960608.042417.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/5f833206f2e111e88ea6d0817aa0681e.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/encoder.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manage/manage_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="58" lean-forward="true" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+          <folding>
+            <element signature="e#644#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manage/admin_user/admin_user_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="121" column="59" selection-start-line="121" selection-start-column="18" selection-end-line="121" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manage/product/product_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-694">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="7" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_manage_admin_user/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="86" column="30" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1542856054395" expanded="true" signature="789:791" ph="..." />
+            <marker date="1542856054395" expanded="true" signature="836:841" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/core/files/storage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="292" column="8" selection-start-line="292" selection-start-column="8" selection-end-line="292" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-456">
+          <caret line="301" column="4" selection-start-line="301" selection-start-column="4" selection-end-line="301" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="140" column="10" selection-start-line="140" selection-end-line="140" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/s_daad9ef8f38411e88b34d0817aa0681e.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/s_daba9450f38411e89c1ad0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/s_dac4e1d0f38411e8a892d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/s_dd39f234f38611e8adf2d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/s_dd763686f38611e889e5d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/s_dda4003af38611e8b43ad0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/dda4003af38611e8b43ad0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/dd763686f38611e889e5d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/PIL/ImageFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="511" selection-start-line="511" selection-end-line="511" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/dd39f234f38611e8adf2d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/daad9ef8f38411e88b34d0817aa0681e.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/daba9450f38411e89c1ad0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/dac4e1d0f38411e8a892d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/d7045c3af39611e8a0e5d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/0ae88cccf39711e8aad3d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/filiuploader2/jquery.fileuploader.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="288" column="154" selection-start-line="288" selection-start-column="149" selection-end-line="288" selection-end-column="154" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/s_53f4a59af39911e8a0f2d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/5f4fa946f39c11e8b18ed0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/53f4a59af39911e8a0f2d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/s_4dbb1564f39f11e89eced0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/4dbb1564f39f11e89eced0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/c5850b68f3a211e8bd51d0817aa0681e.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/4f4465d2f3a111e8b0a3d0817aa0681e.JPG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/9815f650f3a511e89accd0817aa0681e.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_manage_product/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="57" lean-forward="true" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_manage_product/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload_helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1752">
+          <caret line="55" column="47" selection-start-line="55" selection-start-column="47" selection-end-line="55" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#3033#3059#0" />
+            <marker date="1543551214100" expanded="true" signature="312:317" ph="..." />
+            <marker date="1543551214100" expanded="true" signature="6740:6746" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manage/product/product_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1058">
+          <caret line="157" column="51" lean-forward="true" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manage/product/product_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="36" column="66" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_manage_product/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="178" column="34" lean-forward="true" selection-start-line="178" selection-start-column="34" selection-end-line="178" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1543551383417" expanded="true" signature="1936:1937" ph="..." />
+            <marker date="1543551383417" expanded="true" signature="7349:7350" ph="..." />
+            <marker date="1543551383417" expanded="true" signature="8265:8266" ph="..." />
+            <marker date="1543551383417" expanded="true" signature="8631:8632" ph="..." />
+            <marker date="1543551383417" expanded="true" signature="9297:9298" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

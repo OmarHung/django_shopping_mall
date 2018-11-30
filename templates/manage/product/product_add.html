@@ -1,0 +1,220 @@
+{% extends 'manage/manage_base.html' %}
+{% load static %}
+
+{% block css %}
+    <!-- fileupload -->
+    <link href="{% static "filiuploader2/jquery.fileuploader.min.css" %}" rel="stylesheet"/>
+    <link href="{% static "filiuploader2/jquery.fileuploader-theme-thumbnails.css" %}" rel="stylesheet"/>
+    <link href="{% static "filiuploader2/font/font-fileuploader.css" %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <div class="breadcrumb-div">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                <li class="breadcrumb-item"><a href="{% url father_url %}">{{ father_title }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="card-page">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-box">
+                    <form id="fileupload" method="POST" action="{% url 'manage_product_item_insert' %}"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group col-md-6">
+                            <label for="title">商品名稱</label>
+                            <input type="text" name="title" class="form-control" id="title" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="ori_price">原價</label>
+                            <input type="text" name="ori_price" class="form-control" id="ori_price" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="sale_price">優惠價</label>
+                            <input type="text" name="sale_price" class="form-control" id="sale_price" required>
+                        </div>
+                        <hr>
+                        <h3>商品規格</h3>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>規格1</th>
+                                <th>規格2</th>
+                                <th>庫存</th>
+                                <th>刪除</th>
+                            </tr>
+                            </thead>
+                            <tbody class="spec_body">
+                            <tr class="spec">
+                                <td><input type="text" name="spec_1[]" class="form-control" id="" value=""></td>
+                                <td><input type="text" name="spec_2[]" class="form-control" id="" value=""></td>
+                                <td><input type="number" name="stock[]" class="form-control" id="" value="0"></td>
+                                <td>
+                                    <button type="button" class="btn-primary btn removeSpec">刪除</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-md-6">
+                            <button type="button" class="btn-primary btn" onclick="addSpec();">新增規格</button>
+                        </div>
+                        <hr>
+                        <h3>商品圖片</h3>
+                        <div role="tabpanel" class="tab-pane" id="album" aria-labelledby="album-tab">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-12">
+                                    <!-- 作品封面縮圖尺寸只要300*225 -->
+                                    <h7>* 排序第一張圖片為封面</h7>
+                                    <div class="text-pink">建議圖片最佳尺寸大小 長:800px , 寬:500px，若尺寸超過，本系統會自動截切。</div>
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 padding-left-0 padding-right-0">
+                                            <input type="file" name="files" class="imgupload">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn-primary btn">送出</button>
+                            <button type="button" class="btn-secondary btn"
+                                    onclick="location.href='{% url father_url %}'">返回上一頁
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <!-- fileupload -->
+    <script src="{% static "filiuploader2/jquery.fileuploader.min.js" %}"></script>
+    <script>
+        function addSpec() {
+            //console.log('addSpec');
+            var $spec = $('.spec_body').children('.spec').last().clone();
+            console.log($spec);
+            $('.spec_body').append($spec);
+        }
+
+        $('.spec_body').on('click', '.removeSpec', function () {
+            var count = $('.spec_body').children().length;
+            if (count > 1) {
+                //console.log($(this));
+                $(this).parent().parent().remove();
+            }
+        });
+        //fileupload圖片上傳
+        $('input[name="files"]').fileuploader({
+            extensions: ['jpg', 'jpeg', 'png', 'gif', 'bmp'],
+            changeInput: ' ',
+            theme: 'thumbnails',
+            enableApi: true,
+            addMore: true,
+            fileMaxSize: 8,
+            thumbnails: {
+                box: '<div class="fileuploader-items">' +
+                    '<ul class="fileuploader-items-list">' +
+                    '<li class="fileuploader-thumbnails-input"><div class="fileuploader-thumbnails-input-inner"><i>+</i></div></li>' +
+                    '</ul>' +
+                    '</div>',
+                item: '<li class="fileuploader-item file-has-popup">' +
+                    '<div class="fileuploader-item-inner">' +
+                    '<div class="type-holder">${extension}</div>' +
+                    '<div class="actions-holder">' +
+                    '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i></i></a>' +
+                    '</div>' +
+                    '<div class="thumbnail-holder">' +
+                    '${image}' +
+                    '<span class="fileuploader-action-popup"></span>' +
+                    '</div>' +
+                    '<div class="content-holder"><h5>${name}</h5><span>${size2}</span></div>' +
+                    '<div class="progress-holder">${progressBar}</div>' +
+                    '</div>' +
+                    '</li>',
+                item2: '<li class="fileuploader-item file-has-popup">' +
+                    '<div class="fileuploader-item-inner">' +
+                    '<div class="type-holder">${extension}</div>' +
+                    '<div class="actions-holder">' +
+                    '<a class="fileuploader-action fileuploader-action-sort" title="${captions.sort}"><i></i></a>' +
+                    '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i></i></a>' +
+                    '</div>' +
+                    '<div class="thumbnail-holder">' +
+                    '${image}' +
+                    '<span class="fileuploader-action-popup"></span>' +
+                    '</div>' +
+                    '<div class="content-holder"><h5>${name}</h5><span>${size2}</span></div>' +
+                    '<div class="progress-holder">${progressBar}</div>' +
+                    '</div>' +
+                    '</li>',
+                startImageRenderer: true,
+                canvasImage: false,
+                _selectors: {
+                    list: '.fileuploader-items-list',
+                    item: '.fileuploader-item',
+                    start: '.fileuploader-action-start',
+                    retry: '.fileuploader-action-retry',
+                    remove: '.fileuploader-action-remove',
+                    popup_open: '.fileuploader-action-popup'
+                },
+                onItemShow: function (item, listEl, parentEl, newInputEl, inputEl) {
+                    var plusInput = listEl.find('.fileuploader-thumbnails-input'),
+                        api = $.fileuploader.getInstance(inputEl.get(0));
+
+                    plusInput.insertAfter(item.html)[api.getOptions().limit && api.getChoosedFiles().length >= api.getOptions()
+                        .limit ? 'hide' : 'show']();
+
+                    if (item.format == 'image') {
+                        item.html.find('.fileuploader-item-icon').hide();
+                    }
+                    item.html.find('.fileuploader-action-remove').before(
+                        '<a class="fileuploader-action fileuploader-action-sort" title="Sort"><i></i></a>');
+
+                }
+            },
+            afterRender: function (listEl, parentEl, newInputEl, inputEl) {
+                var plusInput = listEl.find('.fileuploader-thumbnails-input'),
+                    api = $.fileuploader.getInstance(inputEl.get(0));
+
+                plusInput.on('click', function () {
+                    api.open();
+                });
+            },
+            onRemove: function (item, listEl, parentEl, newInputEl, inputEl) {
+                var plusInput = listEl.find('.fileuploader-thumbnails-input'),
+                    api = $.fileuploader.getInstance(inputEl.get(0));
+
+                if (api.getOptions().limit && api.getChoosedFiles().length - 1 < api.getOptions().limit)
+                    plusInput.show();
+            },
+            dragDrop: {
+                container: '.fileuploader-thumbnails-input'
+            },
+            sorter: {
+                selectorExclude: null,
+                placeholder: null,
+                scrollContainer: window,
+                onSort: function (list, listEl, parentEl, newInputEl, inputEl) {
+                    // onSort callback
+                }
+            },
+            editor: {
+                cropper: {
+                    showGrid: true,
+                    minWidth: 800,
+                    minHeight: 500,
+                    ratio: '800 : 500',
+                },
+                maxWidth: 800,
+                maxHeight: 500,
+                quality: 90
+            },
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,151 @@
+{% include 'manage/include_header.html' %}
+        <div class="breadcrumb-div">
+            <nav class="mybreadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="card-page">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+                        <table class="table tablesaw">
+                            <form action="{% url 'manage_product_item_list' %}" method="GET" target="">
+                                <button style="margin-bottom: 5px" type="button" class="btn-primary btn" onclick="location.href='{% url 'manage_product_item_add' %}'">新增商品</button>
+                                <div class="row" style="margin-left:0px">
+                                    <input class="col-md-2" type="text" name="search_text" value="{{ search_text }}">
+                                    <button type="submit" class="btn-primary btn">搜尋</button>
+                                    <button type="button" class="btn-secondary btn" onclick="location.href='{% url 'manage_product_item_list' %}'">清除</button>
+                                </div>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">商品</th>
+                                        <th scope="col">原價</th>
+                                        <th scope="col">優惠價</th>
+                                        <th scope="col">上架</th>
+                                        <th scope="col">新增日期</th>
+                                        <th scope="col">編輯</th>
+                                        <th scope="col">刪除</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for product in products %}
+                                    <tr>
+                                        <th scope="row">{{ forloop.counter }}</th>
+                                        <td>{{ product.title }}</td>
+                                        <td style="color: #218838">{{ product.ori_price }}</td>
+                                        <td style="color: #9c0e15">{{ product.sale_price }}</td>
+                                        <td><input data-id="{{ product.id }}" data-status="{{ product.status }}" type="checkbox" class="publish" {% if product.status == 1 %}checked{% endif %}/></td>
+                                        <td>{{ product.date_sell }}</td>
+                                        <td><a href="{% url 'manage_product_item_edit' product.id %}">edit</a></td>
+                                        <td><a href="{% url 'manage_product_item_delete2' product.id %}">delete</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </form>
+                        </table>
+                        {% if products.has_other_pages %}
+                        <ul class="pagination justify-content-center">
+                            {% if products.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ products.previous_page_number }}">&laquo;</a>
+                            </li>
+                            {% else %}
+                            <li class="page-item disabled">
+                                <span class="page-link">&laquo;</span>
+                            </li>
+                            {% endif %}
+                            {% for i in products.paginator.page_range %}
+                            {% if products.number == i %}
+                                <li class="page-item active">
+                                    <span class="page-link">{{ i }} <span class="sr-only">(current)</span></span>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                </li>
+                            {% endif %}
+                            {% endfor %}
+                            {% if products.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ products.next_page_number }}">&raquo;</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <span class="page-link">&raquo;</span>
+                                </li>
+                            {% endif %}
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    //-*-*-*-*- 移除
+    $('.delete-alert').click(function () {
+        var deleteId = $(this).attr("data-id");
+
+        if(deleteId){
+            alert_delete('{% url 'manage_product_item_delete1' %}' + deleteId);
+        }
+    });
+
+    var elems = Array.prototype.slice.call(document.querySelectorAll('.publish'));
+    elems.forEach(function(html) {
+        var switchery = new Switchery(html, {size: 'small'});
+    });
+
+    //------- 文章上架開關
+    $(".switchery").on('click',function(){
+        var $this = $(this);
+        var $object = $this.parent().children('.publish');
+        var id = $object.attr("data-id");               //文章id
+        var status = $object.attr("data-status");       //文章狀態
+        //alert(id);
+        $.ajax({
+            url: '{% url 'manage_product_update_status' %}',
+            method: 'POST',
+            data: {
+                id: id,
+                status: status
+            },
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        }).done(function(data) {
+            $object.attr("data-status", data.status)
+        });
+    });
+
+    // using jQuery
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+        // 这些HTTP方法不要求CSRF包含
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+</script>

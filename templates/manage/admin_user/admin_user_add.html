@@ -1,0 +1,165 @@
+{% include 'manage/include_header.html' %}
+        <div class="breadcrumb-div">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="{% url father_url %}">{{ father_title }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="card-page">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+                        <form id="form" action="">
+                            <div class="form-group col-md-6">
+                                <label for="name">名稱</label>
+                                <input type="text" name="name" class="form-control" id="name" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="username">帳號</label>
+                                <input type="text" name="username" class="form-control" id="username" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>權限</label>
+                                <div class="form-check">
+                                    <input name="premission" class="form-check-input" type="checkbox" value="all" id="premission_all" checked>
+                                    <label class="form-check-label" for="premission_all">
+                                        全部
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="premission" class="form-check-input" type="checkbox" value="product" id="premission_product" disabled>
+                                    <label class="form-check-label" for="premission_product">
+                                        商品
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="premission" class="form-check-input" type="checkbox" value="member" id="premission_member" disabled>
+                                    <label class="form-check-label" for="premission_member">
+                                        會員
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="premission" class="form-check-input" type="checkbox" value="order" id="premission_order" disabled>
+                                    <label class="form-check-label" for="premission_order">
+                                        訂單
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input name="premission" class="form-check-input" type="checkbox" value="system" id="premission_system" disabled>
+                                    <label class="form-check-label" for="premission_system">
+                                        系統
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="password">密碼</label>
+                                <input type="password" name="password" class="form-control" id="password" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="password_check">密碼確認</label>
+                                <input type="password" name="password_check" class="form-control" id="password_check" required>
+                            </div>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn-primary btn">送出</button>
+                                <button type="button" class="btn-secondary btn" onclick="location.href='{% url father_url %}'">返回上一頁</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $('input[type="checkbox"]').change(function () {
+        if($(this).attr('id') == 'premission_all') {
+            checkboxToggle();
+        }
+    });
+
+    function checkboxToggle() {
+        if($('#premission_all').prop("checked")) {
+            $('#premission_product').attr('disabled', true);
+            $('#premission_member').attr('disabled', true);
+            $('#premission_order').attr('disabled', true);
+            $('#premission_system').attr('disabled', true);
+        }else {
+            $('#premission_product').attr('disabled', false);
+            $('#premission_member').attr('disabled', false);
+            $('#premission_order').attr('disabled', false);
+            $('#premission_system').attr('disabled', false);
+        }
+    }
+
+    $(document).on('submit','form',function(){
+        var $form = $(this);
+        var password_check = $('#password_check').val();
+        var password = $('#password').val();
+        var check=$("input[name='premission']:checked").length; //判斷有多少個方框被勾選
+        if(password != password_check) {
+            alert('請確認兩次數入的密碼是否一致');
+            return false;
+        }else if(password.length<6) {
+            alert('密碼長度需超過6個位元');
+            return false;
+        }
+
+        if(check==0){
+            alert("請選擇權限");
+            return false;//不要提交表單
+        }
+
+        var formData = $form.serialize();
+
+        $.ajax({
+            url: '{% url 'manage_admin_user_item_insert' %}',
+            method: 'POST',
+            data: formData,
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        }).done(function(data) {
+            var status = data.status;
+            if(status=='OK') {
+                alert('新增完成');
+                window.location.href = '{% url 'manage_admin_user_item_list' %}';
+            }else {
+                alert(data.msg);
+            }
+        });
+        return false;
+    });
+
+    $('#premission_all').click(function () {
+        checkboxToggle();
+    });
+
+    // using jQuery
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+        // 这些HTTP方法不要求CSRF包含
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+</script>

@@ -1,0 +1,50 @@
+.tool-bar {
+    background: #d1ecf1;
+    font-size: 0px;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+.tool-bar a {
+    padding: 10px 20px;
+    display: inline-block;
+    background: #d1ecf1;
+    font-size: 16px;
+    color: #171a1d;
+    text-decoration: none;
+}
+
+.tool-bar a:hover {
+    background: #65a1c5;
+}
+
+.system-bar {
+    position:absolute;
+    right:0px;
+    display: inline-block;
+    text-align: right;
+}
+
+.card-page {
+    margin-top: 10px;
+    border: lightsteelblue 1px solid;
+    display: block;
+}
+
+.tablesaw {
+    width: 100%;
+}
+
+.breadcrumb-div {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.card-box {
+    padding: 10px;
+}
+
+.preview img {
+    max-height:50px;
+}
