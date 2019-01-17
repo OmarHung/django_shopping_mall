@@ -1,4 +1,7 @@
-{% include 'manage/include_header.html' %}
+{% extends 'manage/manage_base.html' %}
+{% load static %}
+
+{% block content %}
         <div class="breadcrumb-div">
             <nav class="mybreadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -12,54 +15,58 @@
                 <div class="col-12">
                     <div class="card-box">
                         <table class="table tablesaw">
-                            <form action="{% url 'manage_admin_user_item_list' %}" method="GET" target="">
-                                <button style="margin-bottom: 5px" type="button" class="btn-primary btn" onclick="location.href='{% url 'manage_admin_user_item_add' %}'">新增使用者</button>
+                            <form action="{% url 'manage_product_type_item_list' %}" method="GET" target="">
+                                <button style="margin-bottom: 5px" type="button" class="btn-primary btn" onclick="location.href='{% url 'manage_product_type_item_add' %}'">新增商品</button>
+                                <div class="row" style="margin-left:0px">
+                                    <select name="select">
+                                        <option>全部</option>
+                                    {% for type in select_list %}
+                                        <option value="{{ type.id }}">{{ type.title | safe }}</option>
+                                    {% endfor %}
+                                    </select>
+                                </div>
                                 <div class="row" style="margin-left:0px">
                                     <input class="col-md-2" type="text" name="search_text" value="{{ search_text }}">
                                     <button type="submit" class="btn-primary btn">搜尋</button>
-                                    <button type="button" class="btn-secondary btn" onclick="location.href='{% url 'manage_admin_user_item_list' %}'">清除</button>
+                                    <button type="button" class="btn-secondary btn" onclick="location.href='{% url 'manage_product_type_item_list' %}'">清除</button>
                                 </div>
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">名稱</th>
-                                        <th scope="col">帳號</th>
-                                        <th scope="col">權限</th>
-                                        <th scope="col">啟用</th>
+                                        <th scope="col">分類</th>
+                                        <th scope="col">上架</th>
                                         <th scope="col">新增日期</th>
                                         <th scope="col">編輯</th>
                                         <th scope="col">刪除</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for user in users %}
+                                    {% for type in product_type %}
                                     <tr>
                                         <th scope="row">{{ forloop.counter }}</th>
-                                        <td>{{ user.name }}</td>
-                                        <td>{{ user.username }}</td>
-                                        <td>{{ user.premission }}</td>
-                                        <td><input data-id="{{ user.id }}" data-status="{{ user.status }}" type="checkbox" class="publish" {% if user.status == 1 %}checked{% endif %}/></td>
-                                        <td>{{ user.date_add }}</td>
-                                        <td><a href="{% url 'manage_admin_user_item_edit' user.id%}">edit</a></td>
-                                        <td><a href="{% url 'manage_admin_user_item_delete2' user.id%}">delete</a></td>
+                                        <td>{{ type.title | safe }}</td>
+                                        <td><input data-id="{{ type.id }}" data-status="{{ type.status }}" type="checkbox" class="publish" {% if type.status == 1 %}checked{% endif %}/></td>
+                                        <td>{{ type.date_add }}</td>
+                                        <td><a href="{% url 'manage_product_type_item_edit' type.id %}">edit</a></td>
+                                        <td>{% if type.children_count %}---{% else %}<a href="{% url 'manage_product_type_item_delete2' type.id %}">delete</a>{% endif %}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
                             </form>
                         </table>
-                        {% if users.has_other_pages %}
+                        {% if product_type.has_other_pages %}
                         <ul class="pagination justify-content-center">
-                            {% if users.has_previous %}
+                            {% if product_type.has_previous %}
                             <li class="page-item">
-                                <a class="page-link" href="?page={{ users.previous_page_number }}">&laquo;</a>
+                                <a class="page-link" href="?page={{ product_type.previous_page_number }}">&laquo;</a>
                             </li>
                             {% else %}
                             <li class="page-item disabled">
                                 <span class="page-link">&laquo;</span>
                             </li>
                             {% endif %}
-                            {% for i in users.paginator.page_range %}
-                            {% if users.number == i %}
+                            {% for i in product_type.paginator.page_range %}
+                            {% if product_type.number == i %}
                                 <li class="page-item active">
                                     <span class="page-link">{{ i }} <span class="sr-only">(current)</span></span>
                                 </li>
@@ -69,9 +76,9 @@
                                 </li>
                             {% endif %}
                             {% endfor %}
-                            {% if users.has_next %}
+                            {% if product_type.has_next %}
                                 <li class="page-item">
-                                    <a class="page-link" href="?page={{ users.next_page_number }}">&raquo;</a>
+                                    <a class="page-link" href="?page={{ product_type.next_page_number }}">&raquo;</a>
                                 </li>
                             {% else %}
                                 <li class="page-item disabled">
@@ -84,16 +91,16 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
+{% endblock %}
+
+{% block js %}
 <script>
     //-*-*-*-*- 移除
     $('.delete-alert').click(function () {
         var deleteId = $(this).attr("data-id");
 
         if(deleteId){
-            alert_delete('{% url 'manage_admin_user_item_delete1' %}' + deleteId);
+            alert_delete('{% url 'manage_product_type_item_delete1' %}' + deleteId);
         }
     });
 
@@ -110,7 +117,7 @@
         var status = $object.attr("data-status");       //文章狀態
         //alert(id);
         $.ajax({
-            url: '{% url 'manage_admin_user_update_status' %}',
+            url: '{% url 'manage_product_type_update_status' %}',
             method: 'POST',
             data: {
                 id: id,
@@ -149,3 +156,4 @@
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
 </script>
+{% endblock %}

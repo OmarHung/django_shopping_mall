@@ -11,7 +11,7 @@ from .models import Admin_user
 from app_system.models import System_operation_record as Sor
 from app_manage_admin_user import user_decorator, user_premission
 
-father_title = "後台使用者管理"
+father_title = "後台使用者"
 father_url = "manage_admin_user_item_list"
 
 # Create your views here.
@@ -36,15 +36,15 @@ def item_list(request):
     except EmptyPage:
         users = paginator.page(paginator.num_pages)
 
-    return render(request, 'manage/admin_user/admin_user_list.html', {
-        'title': '後台使用者管理',
+    return render(request, 'manage/admin_user/list.html', {
+        'title': '後台使用者',
         'users': users,
         'search_text': search_text,
     })
 
 @user_decorator.login
 def item_add(request):
-    return render(request, 'manage/admin_user/admin_user_add.html', {
+    return render(request, 'manage/admin_user/add.html', {
         'father_title': father_title,
         'father_url': father_url,
         'title': ' 新增後台使用者',
@@ -103,7 +103,7 @@ def item_edit(request, id=0):
     except ObjectDoesNotExist or MultipleObjectsReturned:
         return redirect(item_list)
 
-    return render(request, 'manage/admin_user/admin_user_edit.html', {
+    return render(request, 'manage/admin_user/edit.html', {
         'father_title': father_title,
         'father_url': father_url,
         'title': ' 編輯後台使用者',

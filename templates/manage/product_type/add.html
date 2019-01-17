@@ -1,0 +1,52 @@
+{% extends 'manage/manage_base.html' %}
+{% load static %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+    <div class="breadcrumb-div">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                <li class="breadcrumb-item"><a href="{% url father_url %}">{{ father_title }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="card-page">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-box">
+                    <form id="fileupload" method="POST" action="{% url 'manage_product_type_item_insert' %}"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group col-md-6">
+                            <label for="title">分類名稱</label>
+                            <input type="text" name="title" class="form-control" id="title" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="top_type">上層分類</label>
+                            <select class="form-control" name="top_type" id="top_type">
+                                <option>無</option>
+                                {% for type in select_list %}
+                                    <option value="{{ type.id }}">{{ type.title | safe }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <hr>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn-primary btn">送出</button>
+                            <button type="button" class="btn-secondary btn"
+                                    onclick="location.href='{% url father_url %}'">返回上一頁
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

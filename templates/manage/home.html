@@ -1,4 +1,7 @@
-{% include 'manage/include_header.html' %}
+{% extends 'manage/manage_base.html' %}
+{% load static %}
+
+{% block content %}
         <div class="breadcrumb-div">
             <nav class="mybreadcrumb" aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -15,9 +18,10 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
+{% endblock %}
+
+{% block js %}
 <script>
 
 </script>
+{% endblock %}

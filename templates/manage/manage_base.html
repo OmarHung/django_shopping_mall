@@ -20,22 +20,66 @@
     <div class="container-fluid">
         <div class="row tool-bar">
             {% if 'all' in request.session.admin_premission %}
-            <a href="{% url 'manage_product_item_list' %}">商品管理</a>
-            <a href="#">會員管理</a>
-            <a href="#">訂單管理</a>
-            <a href="{% url 'manage_admin_user_item_list' %}">系統管理</a>
+            <div class="dropdown">
+                <button class="dropbtn">商品管理</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'manage_product_type_item_list' %}">分類</a>
+                    <a href="{% url 'manage_product_item_list' %}">商品</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">會員管理</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'manage_product_item_list' %}">會員</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">訂單管理</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'manage_product_item_list' %}">訂單</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">系統管理</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'manage_admin_user_item_list' %}">後台使用者</a>
+                    <a href="#">網站</a>
+                </div>
+            </div>
             {% else %}
             {% if 'product' in request.session.admin_premission %}
-                <a href="{% url 'manage_product_item_list' %}">商品管理</a>
+            <div class="dropdown">
+                <button class="dropbtn">商品管理</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'manage_product_item_list' %}">分類</a>
+                    <a href="{% url 'manage_product_item_list' %}">商品</a>
+                </div>
+            </div>
             {% endif %}
             {% if 'member' in request.session.admin_premission %}
-                <a href="{% url 'manage_product_item_list' %}">會員管理</a>
+            <div class="dropdown">
+                <button class="dropbtn">會員管理</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'manage_product_item_list' %}">會員</a>
+                </div>
+            </div>
             {% endif %}
             {% if 'order' in request.session.admin_premission %}
-                <a href="{% url 'manage_product_item_list' %}">訂單管理</a>
+            <div class="dropdown">
+                <button class="dropbtn">訂單管理</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'manage_product_item_list' %}">訂單</a>
+                </div>
+            </div>
             {% endif %}
             {% if 'system' in request.session.admin_premission %}
-                <a href="{% url 'manage_admin_user_item_list' %}">系統管理</a>
+            <div class="dropdown">
+                <button class="dropbtn">系統管理</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'manage_admin_user_item_list' %}">後台使用者</a>
+                    <a href="#">網站</a>
+                </div>
+            </div>
             {% endif %}
             {% endif %}
             <div class="system-bar">

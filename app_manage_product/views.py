@@ -12,7 +12,7 @@ from .models import Product, Product_spec, Product_album
 from app_system.models import System_operation_record as Sor
 from app_manage_admin_user import user_decorator
 
-father_title = "商品管理"
+father_title = "商品"
 father_url = "manage_product_item_list"
 
 # Create your views here.
@@ -37,8 +37,8 @@ def item_list(request):
     except EmptyPage:
         products = paginator.page(paginator.num_pages)
 
-    return render(request, 'manage/product/product_list.html', {
-        'title': '商品管理',
+    return render(request, 'manage/product/list.html', {
+        'title': '商品',
         'products': products,
         'search_text': search_text,
     })
@@ -47,7 +47,7 @@ def item_list(request):
 def item_add(request):
     if 'all' not in request.session['admin_premission'] and 'product' not in request.session['admin_premission']:
         return redirect('manage_home_home')
-    return render(request, 'manage/product/product_add.html', {
+    return render(request, 'manage/product/add.html', {
         'father_title': father_title,
         'father_url': father_url,
         'title': ' 新增商品',
@@ -121,7 +121,7 @@ def item_edit(request, id=0):
         return redirect(item_list)
 
 
-    return render(request, 'manage/product/product_edit.html', {
+    return render(request, 'manage/product/edit.html', {
         'father_title': father_title,
         'father_url': father_url,
         'title': ' 編輯商品',

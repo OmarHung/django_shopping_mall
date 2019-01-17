@@ -1,4 +1,7 @@
-{% include 'manage/include_header.html' %}
+{% extends 'manage/manage_base.html' %}
+{% load static %}
+
+{% block content %}
         <div class="breadcrumb-div">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -72,9 +75,9 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
+{% endblock %}
+
+{% block js %}
 <script>
     checkboxToggle();
     $('input[type="checkbox"]').change(function () {
@@ -166,3 +169,4 @@
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
 </script>
+{% endblock %}

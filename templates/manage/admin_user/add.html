@@ -1,4 +1,7 @@
-{% include 'manage/include_header.html' %}
+{% extends 'manage/manage_base.html' %}
+{% load static %}
+
+{% block content %}
         <div class="breadcrumb-div">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -71,9 +74,9 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
-</html>
+{% endblock %}
+
+{% block js %}
 <script>
     $('input[type="checkbox"]').change(function () {
         if($(this).attr('id') == 'premission_all') {
@@ -163,3 +166,4 @@
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
     }
 </script>
+{% endblock %}

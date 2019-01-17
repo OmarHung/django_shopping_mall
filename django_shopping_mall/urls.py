@@ -22,7 +22,10 @@ urlpatterns = [
     path('manage_home/', include('app_manage_home.urls')),
     path('manage_login/', include('app_manage_login.urls')),
     path('manage_product/', include('app_manage_product.urls')),
+    path('manage_product_type/', include('app_manage_product_type.urls')),
     path('manage_admin_user/', include('app_manage_admin_user.urls')),
+
+    path('', include('app_front_home.urls')),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,413 @@
+{% extends 'manage/manage_base.html' %}
+{% load static %}
+
+{% block css %}
+    <!-- fileupload -->
+    <link href="{% static "filiuploader2/jquery.fileuploader.min.css" %}" rel="stylesheet"/>
+    <link href="{% static "filiuploader2/jquery.fileuploader-theme-thumbnails.css" %}" rel="stylesheet"/>
+    <link href="{% static "filiuploader2/font/font-fileuploader.css" %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <div class="breadcrumb-div">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">首頁</a></li>
+                <li class="breadcrumb-item"><a href="{% url father_url %}">{{ father_title }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="card-page">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-box">
+                    <form method="POST" action="{% url 'manage_product_item_update' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" class="form-control" id="id" value="{{ product.id }}">
+                        <h3>商品資訊</h3>
+                        <div class="form-group col-md-6">
+                            <label for="title">商品名稱</label>
+                            <input type="text" name="title" class="form-control" id="title" value="{{ product.title }}"
+                                   required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="ori_price">原價</label>
+                            <input type="text" name="ori_price" class="form-control" id="ori_price"
+                                   value="{{ product.ori_price }}" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="sale_price">優惠價</label>
+                            <input type="text" name="sale_price" class="form-control" id="sale_price"
+                                   value="{{ product.sale_price }}" required>
+                        </div>
+                        <hr>
+                        <h3>商品規格</h3>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>規格1</th>
+                                <th>規格2</th>
+                                <th>庫存</th>
+                                <th>刪除</th>
+                            </tr>
+                            </thead>
+                            <tbody class="spec_body">
+                            {% for item in spec %}
+                                <tr class="spec">
+                                    <td><input type="text" name="spec_1[]" class="form-control" id=""
+                                               value="{{ item.spec_1 }}"></td>
+                                    <td><input type="text" name="spec_2[]" class="form-control" id=""
+                                               value="{{ item.spec_2 }}"></td>
+                                    <td><input type="number" name="stock[]" class="form-control" id=""
+                                               value="{{ item.stock }}"></td>
+                                    <td>
+                                        <button type="button" class="btn-primary btn removeSpec">刪除</button>
+                                    </td>
+                                </tr>
+                            {% empty %}
+                                <tr class="spec">
+                                    <td><input type="text" name="spec_1[]" class="form-control" id="" value=""></td>
+                                    <td><input type="text" name="spec_2[]" class="form-control" id="" value=""></td>
+                                    <td><input type="number" name="stock[]" class="form-control" id="" value="0"></td>
+                                    <td>
+                                        <button type="button" class="btn-primary btn removeSpec">刪除</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <div class="col-md-6">
+                            <button type="button" class="btn-primary btn" onclick="addSpec();">新增規格</button>
+                        </div>
+                        <hr>
+                        <h3>商品圖片</h3>
+                        <div role="tabpanel" class="tab-pane" id="album" aria-labelledby="album-tab">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-12">
+                                    <!-- 作品封面縮圖尺寸只要300*225 -->
+                                    <h4 class="header-title m-t-0"><i class="ion-information-circled"></i> 排序第一張圖片為封面
+                                    </h4>
+                                    <h4 class="header-title m-t-0"><i class="ion-information-circled"></i> 點選<i
+                                            class="zmdi zmdi-arrows"></i>圖示以進行拖拉排序</h4>
+                                    <h4 class="header-title m-t-0"><i class="ion-information-circled"></i> 點選<i
+                                            class="zmdi zmdi-close-circle"></i>圖示刪除圖片</h4>
+                                    <div class="text-pink">建議圖片最佳尺寸大小 長:800px , 寬:500px，請拖拉圖片到這裡，若尺寸超過，本系統會自動截切。</div>
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-12 padding-left-0 padding-right-0">
+                                            <input type="file" name="files" class="imgupload" data-fileuploader-files='{{ imgs_json|safe }}'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn-primary btn">送出</button>
+                            <button type="button" class="btn-secondary btn"
+                                    onclick="location.href='{% url father_url %}}'">
+                                返回上一頁
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <!-- fileupload -->
+    <script src="{% static "filiuploader2/jquery.fileuploader.min.js" %}"></script>
+    <script>
+        function addSpec() {
+            //console.log('addSpec');
+            var $spec = $('.spec_body').children('.spec').last().clone();
+            console.log($spec);
+            $('.spec_body').append($spec);
+        }
+
+        $('.spec_body').on('click', '.removeSpec', function () {
+            var count = $('.spec_body').children().length;
+            if (count > 1) {
+                //console.log($(this));
+                $(this).parent().parent().remove();
+            }
+        });
+        //fileupload圖片上傳
+        $(document).ready(function () {
+            // editor save function
+            var saveEditedImage = function (item) {
+                console.log('saveEditedImage');
+                // if still uploading
+                // pend and exit
+                if (item.upload && item.upload.status == 'loading')
+                    return item.editor.isUploadPending = true;
+
+                // if not appended or not uploaded
+                if (!item.appended && !item.uploaded)
+                    return;
+
+                // if no editor
+                if (!item.editor || !item.reader.width)
+                    return;
+
+                // if uploaded
+                // resend upload
+                if (item.upload && item.upload.resend) {
+                    item.editor._namee = item.name;
+                    item.upload.resend();
+                }
+
+                // if appended
+                // send request
+                if (item.appended) {
+                    // hide current thumbnail (this is only animation)
+                    item.imageIsUploading = true;
+                    item.image.addClass('fileuploader-loading').html('');
+                    item.html.find('.fileuploader-action-popup').hide();
+
+                    $.post('{% url 'ajax_crop_img' %}', {
+                        _file: item.file,
+                        _editor: JSON.stringify(item.editor),
+                        fileuploader: 1,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    }, function () {
+                        item.reader.read(function () {
+
+                            delete item.imageIsUploading;
+                            item.html.find('.fileuploader-action-popup').show();
+
+                            item.popup.html = item.popup.editor = item.editor.crop = item.editor.rotation = null;
+                            item.renderThumbnail();
+                        }, null, true);
+                    });
+                }
+
+            };
+            $('input[name="files"]').fileuploader({
+                changeInput: ' ',
+                theme: 'thumbnails',
+                enableApi: true,
+                addMore: true,
+                fileMaxSize: 8,
+                extensions: ['jpg', 'jpeg', 'png', 'gif', 'bmp'],
+                thumbnails: {
+                    box: '<div class="fileuploader-items">' +
+                        '<ul class="fileuploader-items-list">' +
+                        '<li class="fileuploader-thumbnails-input"><div class="fileuploader-thumbnails-input-inner"><i>+</i></div></li>' +
+                        '</ul>' +
+                        '</div>',
+                    item: '<li class="fileuploader-item file-has-popup">' +
+                        '<div class="fileuploader-item-inner">' +
+                        '<div class="type-holder">${extension}</div>' +
+                        '<div class="actions-holder">' +
+                        '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i></i></a>' +
+                        '</div>' +
+                        '<div class="thumbnail-holder">' +
+                        '${image}' +
+                        '<span class="fileuploader-action-popup"></span>' +
+                        '</div>' +
+                        '<div class="content-holder"><h5>${name}</h5><span>${size2}</span></div>' +
+                        '<div class="progress-holder">${progressBar}</div>' +
+                        '</div>' +
+                        '</li>',
+                    item2: '<li class="fileuploader-item file-has-popup">' +
+                        '<div class="fileuploader-item-inner">' +
+                        '<div class="type-holder">${extension}</div>' +
+                        '<div class="actions-holder">' +
+                        '<a class="fileuploader-action fileuploader-action-sort" title="${captions.sort}"><i></i></a>' +
+                        '<a class="fileuploader-action fileuploader-action-remove" title="${captions.remove}"><i></i></a>' +
+                        '</div>' +
+                        '<div class="thumbnail-holder">' +
+                        '${image}' +
+                        '<span class="fileuploader-action-popup"></span>' +
+                        '</div>' +
+                        '<div class="content-holder"><h5>${name}</h5><span>${size2}</span></div>' +
+                        '<div class="progress-holder">${progressBar}</div>' +
+                        '</div>' +
+                        '</li>',
+                    startImageRenderer: false,
+                    canvasImage: false,
+                    _selectors: {
+                        list: '.fileuploader-items-list',
+                        item: '.fileuploader-item',
+                        start: '.fileuploader-action-start',
+                        retry: '.fileuploader-action-retry',
+                        remove: '.fileuploader-action-remove',
+                        sorter: '.fileuploader-action-sort'
+                    },
+                    onItemShow: function (item, listEl, parentEl, newInputEl, inputEl) {
+                        var plusInput = listEl.find('.fileuploader-thumbnails-input');
+
+                        plusInput.insertAfter(item.html);
+                        plusInput.find('.remove').attr('id', item)
+                        if (item.format == 'image') {
+                            item.html.find('.fileuploader-item-icon').hide();
+                        }
+                        console.log('onItemShow');
+                        console.log(item);
+                    }
+                },
+                afterRender: function (listEl, parentEl, newInputEl, inputEl) {
+                    var plusInput = listEl.find('.fileuploader-thumbnails-input'),
+                        api = $.fileuploader.getInstance(inputEl.get(0));
+                    plusInput.on('click', function () {
+                        api.open();
+                    });
+                    console.log('afterRender');
+                },
+                upload: {
+                    url: "{% url 'ajax_upload_images' %}",
+                    data: {
+                        id: {{ product.id }},
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                    type: 'POST',
+                    enctype: 'multipart/form-data',
+                    start: true,
+                    synchron: true,
+                    // beforeSend: null,
+                    beforeSend: function (item) {
+                        // add editor to upload data
+                        // note! that php will automatically adjust _editorr to the file
+                        if (item.editor && (typeof item.editor.rotation != "undefined" || item.editor.crop)) {
+                            item.upload.data._editorr = JSON.stringify(item.editor);
+                            if (item.editor._namee) {
+                                item.upload.data._namee = item.name;
+                                delete item.editor._namee;
+                            }
+
+                            // remove success icon that was added in onSuccess callback
+                            item.html.find('.column-actions .fileuploader-action-success').remove();
+                        }
+                    },
+                    onSuccess: function (result, item) {
+                        console.log('onSuccess');
+
+                        var data = {};
+
+                        try {
+                            data = JSON.parse(result);
+                        } catch (e) {
+                            data.hasWarnings = true;
+                        }
+
+                        // if success
+                        if (data.isSuccess && data.files[0]) {
+                            item.name = data.files[0].name;
+                            item.html.find('.column-title > div:first-child').text(data.files[0].name).attr('title', data.files[0].name);
+
+                            // send pending editor
+                            if (item.editor && item.editor.isUploadPending) {
+                                delete item.editor.isUploadPending;
+
+                                saveEditedImage(item);
+                            }
+                        }
+
+                        // if warnings
+                        if (data.hasWarnings) {
+                            for (var warning in data.warnings) {
+                                alert(data.warnings);
+                            }
+
+                            item.html.removeClass('upload-successful').addClass('upload-failed');
+                            // go out from success function by calling onError function
+                            // in this case we have a animation there
+                            // you can also response in PHP with 404
+                            return this.onError ? this.onError(item) : null;
+                        }
+
+                        setTimeout(function () {
+                            item.html.find('.fileuploader-action-remove').before('<a class="fileuploader-action fileuploader-action-sort" title="Sort"><i></i></a>');
+                            item.html.find('.progress-holder').hide();
+                            item.renderThumbnail();
+                        }, 400);
+                    },
+                    onError: function (item) {
+                        item.html.find('.progress-holder').hide();
+                        item.html.find('.fileuploader-item-icon i').text('上傳失敗!');
+                    },
+                    onProgress: function (data, item) {
+                        var progressBar = item.html.find('.progress-holder');
+
+                        if (progressBar.length > 0) {
+                            progressBar.show();
+                            progressBar.find('.fileuploader-progressbar .bar').width(data.percentage + "%");
+                        }
+                    }
+                },
+                dragDrop: {
+                    container: '.fileuploader-thumbnails-input'
+                },
+                onRemove: function (item) {
+                    $.post('{% url 'ajax_delete_img' %}', {
+                        file: item.name,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    });
+                },
+                sorter: {
+                    selectorExclude: null,
+                    placeholder: '<li class="fileuploader-item fileuploader-sorter-placeholder"><div class="fileuploader-item-inner"></div></li>',
+                    scrollContainer: window,
+                    onSort: function (list, listEl, parentEl, newInputEl, inputEl) {
+                        var api = $.fileuploader.getInstance(inputEl.get(0)),
+                            fileList = api.getFileList(),
+                            _list = [];
+
+                        $.each(fileList, function (i, item) {
+                            _list.push({
+                                name: item.name,
+                                index: item.index
+                            });
+                        });
+
+                        $.post('{% url 'ajax_sorter_img' %}', {
+                            _list: JSON.stringify(_list),
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                        });
+                    }
+                },
+                editor: {
+                    cropper: {
+                        showGrid: true,
+                        minWidth: 800,
+                        minHeight: 500,
+                        ratio: '800 : 500',
+                    },
+                    maxWidth: 800,
+                    maxHeight: 500,
+                    quality: 90,
+                    onSave: function (dataURL, item) {
+                        console.log('onSave');
+                        saveEditedImage(item);
+                    }
+                },
+
+            });
+        });
+    // using jQuery
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    var csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+        // 这些HTTP方法不要求CSRF包含
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    </script>
+{% endblock %}
