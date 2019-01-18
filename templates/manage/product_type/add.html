@@ -18,8 +18,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card-box">
-                    <form id="fileupload" method="POST" action="{% url 'manage_product_type_item_insert' %}"
-                          enctype="multipart/form-data">
+                    <form id="form" method="POST" action="" target="" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-group col-md-6">
                             <label for="title">分類名稱</label>
@@ -49,4 +48,13 @@
 {% endblock %}
 
 {% block js %}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        //驗證欄位
+        $('#form').onsubmit(function(event) {
+            event.preventDefault(); //阻止提交表單
+            form_submit('form','{% url 'manage_product_type_item_insert' %}');
+        });
+    });
+    </script>
 {% endblock %}

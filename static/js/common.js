@@ -20,3 +20,14 @@ function SelectIt(form_name,select_name){
     location = document.forms[form_name].elements[select_name].options[document.forms[form_name].elements[select_name].selectedIndex].value
   }
 }
+
+//===================================================
+//========    表單提交    ============================
+//=================================================//
+
+function form_submit(FormId,Url){
+  document.getElementById(FormId).attributes['action'].value=Url ;
+  document.getElementById(FormId).attributes['target'].value="hiddle" ;
+  document.getElementById(FormId).submit();
+  return true;
+}

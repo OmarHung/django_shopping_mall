@@ -143,12 +143,23 @@ def item_edit(request, id=0):
     except ObjectDoesNotExist or MultipleObjectsReturned:
         return redirect(item_list)
 
+    type_list = Product_type.objects.filter(top_type__isnull=True).order_by('ordera')
+    select_list = []
+    for type in type_list:
+        top_type = type.top_type
+        title = type.title
+        type.label = '<span style="color:red">' + title + '</span>'  # get_type_family_title(None, '<span style="color:red">' + title + '</span>')
+        select_list.append(type)
+
+        id = type.id
+        select_list = get_type_children(id, select_list)
 
     return render(request, 'manage/product_type/edit.html', {
         'father_title': father_title,
         'father_url': father_url,
         'title': ' 編輯分類',
-        'product_type': product_type
+        'product_type': product_type,
+        'select_list': select_list
     })
 
 @user_decorator.login
@@ -159,8 +170,17 @@ def item_update(request):
         id = request.POST['id']
         title = request.POST['title']
         top_type = request.POST['top_type']
+        if top_type=="":
+            top_type=None
 
         product_type = Product_type.objects.filter(id=id)
+
+        #不可移到子類別後
+        check = check_move_to_child(id, top_type)
+        print(check)
+        if check:
+            return HttpResponse("<script>parent.parent.alert('不可移到子類別後');</script>")
+
         product_type.update(title=title, top_type=top_type)
 
         log = "編輯分類：" + title
@@ -236,3 +256,18 @@ def get_type_children(id, type_list):
             type_list = get_type_children(id, type_list)
 
     return type_list
+
+def check_move_to_child(id, top_type):
+    id = int(id)
+    if id == top_type:
+        return True
+
+    while True:
+        try:
+            product_type = Product_type.objects.get(id=top_type)
+        except ObjectDoesNotExist or MultipleObjectsReturned:
+            return False
+        print(top_type)
+        if id == top_type:
+            return True
+        top_type = product_type.top_type
