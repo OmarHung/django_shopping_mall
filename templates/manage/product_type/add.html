@@ -51,7 +51,7 @@
     <script type="text/javascript">
     $(document).ready(function() {
         //驗證欄位
-        $('#form').onsubmit(function(event) {
+        $('#form').submit(function(event) {
             event.preventDefault(); //阻止提交表單
             form_submit('form','{% url 'manage_product_type_item_insert' %}');
         });

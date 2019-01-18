@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import redirect
+from django.urls import reverse
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import json
@@ -132,7 +133,7 @@ def item_insert(request):
         log = "新增分類：" + title
         type = "新增"
         Sor.objects.create(log=log, type=type)
-        return redirect(item_list)
+        return HttpResponse("<script>parent.parent.alert('新增成功');parent.parent.window.location.href='"+reverse('manage_product_type_item_list')+"';</script>")#redirect(item_list)
 
 @user_decorator.login
 def item_edit(request, id=0):
@@ -186,7 +187,7 @@ def item_update(request):
         log = "編輯分類：" + title
         type = "編輯"
         Sor.objects.create(log=log, type=type)
-        return redirect(item_edit, id=id)
+        return HttpResponse("<script>parent.parent.alert('編輯成功');parent.parent.window.location.href='"+reverse('manage_product_type_item_edit', kwargs={"id":id})+"';</script>")#redirect(item_edit, id=id)
 
 @user_decorator.login
 def item_delete(request, id=0):
