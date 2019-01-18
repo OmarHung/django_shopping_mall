@@ -2,29 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6134c6fd-d9c8-43bd-a22c-a5003833cd57" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_front_home/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_manage_product_type/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/front/front_base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/manage/product_type/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/manage/product_type/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/manage/product_type/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_manage_admin_user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_manage_admin_user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_manage_product/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_manage_product/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_shopping_mall/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_shopping_mall/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_shopping_mall/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_shopping_mall/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/admin_user/admin_user_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/admin_user/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/admin_user/admin_user_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/admin_user/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/admin_user/admin_user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/admin_user/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/include_header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/manage_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/manage_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/product/include_tool_bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/product/product_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/product/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/product/product_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/product/edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/manage/product/product_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/product/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_manage_product_type/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_manage_product_type/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/product/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/product/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/product_type/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/product_type/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/manage/product_type/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/manage/product_type/list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,20 +54,20 @@
           <entry key="JPG" value="27" />
           <entry key="css" value="12" />
           <entry key="git" value="1" />
-          <entry key="html" value="59" />
+          <entry key="html" value="64" />
           <entry key="jpg" value="7" />
-          <entry key="js" value="9" />
+          <entry key="js" value="10" />
           <entry key="png" value="2" />
-          <entry key="py" value="142" />
+          <entry key="py" value="145" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="12" />
-          <entry key="HTML" value="59" />
+          <entry key="HTML" value="64" />
           <entry key="Image" value="36" />
-          <entry key="JavaScript" value="9" />
-          <entry key="Python" value="142" />
+          <entry key="JavaScript" value="10" />
+          <entry key="Python" value="145" />
           <entry key="UNKNOWN" value="1" />
         </counts>
       </usages-collector>
@@ -92,31 +75,31 @@
         <counts>
           <entry key="Django Console" value="341" />
           <entry key="css" value="20" />
-          <entry key="html" value="3000" />
-          <entry key="js" value="2" />
-          <entry key="py" value="7100" />
+          <entry key="html" value="3124" />
+          <entry key="js" value="20" />
+          <entry key="py" value="7394" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="20" />
-          <entry key="HTML" value="3000" />
-          <entry key="JavaScript" value="2" />
-          <entry key="Python" value="7441" />
+          <entry key="HTML" value="3124" />
+          <entry key="JavaScript" value="20" />
+          <entry key="Python" value="7735" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app_manage_product_type/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2880">
-              <caret line="202" column="31" selection-start-line="202" selection-start-column="17" selection-end-line="202" selection-end-column="31" />
+            <state relative-caret-position="427">
+              <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1544439065623" expanded="true" signature="6584:6585" ph="..." />
+                <marker date="1547788440411" expanded="true" signature="7463:7464" ph="..." />
               </folding>
             </state>
           </provider>
@@ -125,73 +108,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/manage/product_type/add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
+            <state relative-caret-position="346">
+              <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/manage/product_type/list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="50" column="169" selection-start-line="50" selection-start-column="169" selection-end-line="50" selection-end-column="169" />
+            <state relative-caret-position="322">
+              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app_manage_admin_user/urls.py">
+        <entry file="file://$PROJECT_DIR$/static/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="255">
+              <caret line="17" selection-start-line="17" selection-end-line="21" selection-end-column="1" />
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app_manage_product/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app_manage_product_type/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django_shopping_mall/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="23" column="24" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/manage/manage_base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="53" lean-forward="true" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django_shopping_mall/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="54" column="59" selection-start-line="54" selection-start-column="59" selection-end-line="54" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -224,8 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app_manage_home/models.py" />
-        <option value="$PROJECT_DIR$/app_manage_home/admin.py" />
         <option value="$PROJECT_DIR$/templates/manage/product_list.html" />
         <option value="$PROJECT_DIR$/app_manage_admin_user/urls.py" />
         <option value="$PROJECT_DIR$/templates/manage/admin_user_edit.html" />
@@ -271,10 +208,12 @@
         <option value="$PROJECT_DIR$/templates/manage/manage_base.html" />
         <option value="$PROJECT_DIR$/templates/manage/home.html" />
         <option value="$PROJECT_DIR$/app_manage_product_type/models.py" />
-        <option value="$PROJECT_DIR$/templates/manage/product_type/add.html" />
-        <option value="$PROJECT_DIR$/app_manage_product_type/views.py" />
-        <option value="$PROJECT_DIR$/templates/manage/product_type/list.html" />
         <option value="$PROJECT_DIR$/django_shopping_mall/settings.py" />
+        <option value="$PROJECT_DIR$/templates/manage/product/edit.html" />
+        <option value="$PROJECT_DIR$/static/js/common.js" />
+        <option value="$PROJECT_DIR$/templates/manage/product_type/add.html" />
+        <option value="$PROJECT_DIR$/templates/manage/product_type/list.html" />
+        <option value="$PROJECT_DIR$/app_manage_product_type/views.py" />
       </list>
     </option>
   </component>
@@ -325,6 +264,17 @@
             <path>
               <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
               <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -332,6 +282,13 @@
               <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="manage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django_shopping_mall" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="manage" type="462c0819:PsiDirectoryNode" />
+              <item name="product" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django_shopping_mall" type="b2602c69:ProjectViewProjectNode" />
@@ -348,6 +305,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -435,12 +393,12 @@
     <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1512247" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1512247" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32953367" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3046632" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3046632" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -465,8 +423,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/s_dd763686f38611e889e5d0817aa0681e.JPG" />
-    <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/s_dda4003af38611e8b43ad0817aa0681e.JPG" />
     <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/dda4003af38611e8b43ad0817aa0681e.JPG" />
     <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/dd763686f38611e889e5d0817aa0681e.JPG" />
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/PIL/ImageFile.py">
@@ -497,13 +453,6 @@
     <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/c5850b68f3a211e8bd51d0817aa0681e.png" />
     <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/4f4465d2f3a111e8b0a3d0817aa0681e.JPG" />
     <entry file="file://$PROJECT_DIR$/django_shopping_mall/media/product/9815f650f3a511e89accd0817aa0681e.png" />
-    <entry file="file://$PROJECT_DIR$/templates/manage/product/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2355">
-          <caret line="157" column="51" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/upload_helper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -610,13 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_manage_product/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1564">
-          <caret line="104" column="13" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app_manage_product_type/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -628,24 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="86" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_manage_product_type/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="202" column="31" selection-start-line="202" selection-start-column="17" selection-end-line="202" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1544439065623" expanded="true" signature="6584:6585" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/manage/product_type/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="50" column="14" selection-start-line="50" selection-start-column="14" selection-end-line="50" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -693,10 +617,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manage/product/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="37" lean-forward="true" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="21" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_manage_product/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="28" column="58" selection-start-line="28" selection-start-column="42" selection-end-line="28" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manage/product_type/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/manage/product_type/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/manage/product_type/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="50" column="169" selection-start-line="50" selection-start-column="169" selection-end-line="50" selection-end-column="169" />
+        <state relative-caret-position="322">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_manage_product_type/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1547788440411" expanded="true" signature="7463:7464" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

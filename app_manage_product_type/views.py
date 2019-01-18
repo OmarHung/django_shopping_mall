@@ -20,32 +20,50 @@ def item_list(request):
         return redirect('manage_home_home')
 
     search_text = request.GET.get('search_text', '')
+    select_type = request.GET.get('select', '')
 
     product_type = Product_type.objects.filter(top_type__isnull=True).order_by('ordera')
+
     select_list = []
     for type in product_type:
         id = type.id
         title = type.title
         type.children_count = Product_type.objects.filter(top_type=id).count()
-        print(title, type.children_count)
-        type.title = '<span style="color:red">' + title + '</span>'  # get_type_family_title(None, '<span style="color:red">' + title + '</span>')
+        type.label = '<span style="color:red">' + title + '</span>'
         select_list.append(type)
 
-        id = type.id
         select_list = get_type_children(id, select_list)
+    type_list = select_list.copy()
 
+    #下拉選單
+    if select_type != '':
+        try:
+            product_type = Product_type.objects.get(id=select_type)
+        except ObjectDoesNotExist or MultipleObjectsReturned:
+            return redirect(item_list)
+
+        type_list = []
+        id = product_type.id
+        title = product_type.title
+        top_type = product_type.top_type
+        product_type.children_count = Product_type.objects.filter(top_type=id).count()
+        if top_type is not None:
+            product_type.label = get_type_family_title(top_type, '<span style="color:red">' + title + '</span>')
+        else:
+            product_type.label = '<span style="color:red">' + title + '</span>'
+        type_list.append(product_type)
+
+        type_list = get_type_children(id, type_list)
+
+    #搜尋文字
     if search_text!='':
-        type_list = Product_type.objects.filter(title__icontains=search_text)
+        type_list = Product_type.objects.filter(title__icontains=search_text).order_by('ordera')
         for type in type_list:
             id = type.id
             top_type = type.top_type
             title = type.title
             type.children_count = Product_type.objects.filter(top_type=id).count()
-            type.title = get_type_family_title(top_type, '<span style="color:red">' + title + '</span>')
-    else:
-        type_list = select_list
-
-    print(type_list)
+            type.label = get_type_family_title(top_type, '<span style="color:red">' + title + '</span>')
 
     page = request.GET.get('page', 1)
     paginator = Paginator(type_list, 10)
@@ -56,12 +74,19 @@ def item_list(request):
     except EmptyPage:
         type_list = paginator.page(paginator.num_pages)
 
+    try:
+        select_type=int(select_type)
+    except ValueError:
+        #print("ValueError")
+        select_type=0
 
+    #print(select_type)
     return render(request, 'manage/product_type/list.html', {
         'title': '分類',
         'select_list': select_list,
         'product_type': type_list,
         'search_text': search_text,
+        'select_type': select_type,
     })
 
 @user_decorator.login
@@ -74,7 +99,7 @@ def item_add(request):
     for type in product_type:
         top_type = type.top_type
         title = type.title
-        type.title = '<span style="color:red">' + title + '</span>'  # get_type_family_title(None, '<span style="color:red">' + title + '</span>')
+        type.label = '<span style="color:red">' + title + '</span>'  # get_type_family_title(None, '<span style="color:red">' + title + '</span>')
         select_list.append(type)
 
         id = type.id
@@ -98,6 +123,9 @@ def item_insert(request):
         title = request.POST['title']
         top_type = request.POST['top_type']
         uid = uuid.uuid1().hex
+
+        if top_type=="":
+            top_type=None
 
         Product_type.objects.create(title=title, top_type=top_type, uid=uid)
 
@@ -201,7 +229,7 @@ def get_type_children(id, type_list):
             top_type = type.top_type
             title = type.title
             type.children_count = Product_type.objects.filter(top_type=id).count()
-            type.title = get_type_family_title(top_type, '<span style="color:red">' + title + '</span>')
+            type.label = get_type_family_title(top_type, '<span style="color:red">' + title + '</span>')
             type_list.append(type)
 
             id = type.id

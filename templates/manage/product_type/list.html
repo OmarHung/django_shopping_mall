@@ -15,44 +15,46 @@
                 <div class="col-12">
                     <div class="card-box">
                         <table class="table tablesaw">
-                            <form action="{% url 'manage_product_type_item_list' %}" method="GET" target="">
-                                <button style="margin-bottom: 5px" type="button" class="btn-primary btn" onclick="location.href='{% url 'manage_product_type_item_add' %}'">新增商品</button>
+                            <button style="margin-bottom: 5px" type="button" class="btn-primary btn" onclick="location.href='{% url 'manage_product_type_item_add' %}'">新增商品</button>
+                            <form name="select_form" method="GET" target="">
                                 <div class="row" style="margin-left:0px">
-                                    <select name="select">
-                                        <option>全部</option>
+                                    <select name="select" onchange="SelectIt('select_form', 'select');">
+                                        <option value="{% url 'manage_product_type_item_list' %}">全部</option>
                                     {% for type in select_list %}
-                                        <option value="{{ type.id }}">{{ type.title | safe }}</option>
+                                        <option value="{% url 'manage_product_type_item_list' %}?select={{ type.id }}" {% if type.id == select_type %}selected{% endif %}>{{ type.label | safe }}</option>
                                     {% endfor %}
                                     </select>
                                 </div>
+                            </form>
+                            <form name="search_form" action="{% url 'manage_product_type_item_list' %}" method="GET" target="">
                                 <div class="row" style="margin-left:0px">
                                     <input class="col-md-2" type="text" name="search_text" value="{{ search_text }}">
                                     <button type="submit" class="btn-primary btn">搜尋</button>
                                     <button type="button" class="btn-secondary btn" onclick="location.href='{% url 'manage_product_type_item_list' %}'">清除</button>
                                 </div>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">分類</th>
-                                        <th scope="col">上架</th>
-                                        <th scope="col">新增日期</th>
-                                        <th scope="col">編輯</th>
-                                        <th scope="col">刪除</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for type in product_type %}
-                                    <tr>
-                                        <th scope="row">{{ forloop.counter }}</th>
-                                        <td>{{ type.title | safe }}</td>
-                                        <td><input data-id="{{ type.id }}" data-status="{{ type.status }}" type="checkbox" class="publish" {% if type.status == 1 %}checked{% endif %}/></td>
-                                        <td>{{ type.date_add }}</td>
-                                        <td><a href="{% url 'manage_product_type_item_edit' type.id %}">edit</a></td>
-                                        <td>{% if type.children_count %}---{% else %}<a href="{% url 'manage_product_type_item_delete2' type.id %}">delete</a>{% endif %}</td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
                             </form>
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">分類</th>
+                                    <th scope="col">上架</th>
+                                    <th scope="col">新增日期</th>
+                                    <th scope="col">編輯</th>
+                                    <th scope="col">刪除</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for type in product_type %}
+                                <tr>
+                                    <th scope="row">{{ forloop.counter }}</th>
+                                    <td>{{ type.label | safe }}</td>
+                                    <td><input data-id="{{ type.id }}" data-status="{{ type.status }}" type="checkbox" class="publish" {% if type.status == 1 %}checked{% endif %}/></td>
+                                    <td>{{ type.date_add }}</td>
+                                    <td><a href="{% url 'manage_product_type_item_edit' type.id %}">edit</a></td>
+                                    <td>{% if type.children_count %}---{% else %}<a href="{% url 'manage_product_type_item_delete2' type.id %}">delete</a>{% endif %}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
                         </table>
                         {% if product_type.has_other_pages %}
                         <ul class="pagination justify-content-center">
@@ -154,6 +156,11 @@
     function csrfSafeMethod(method) {
         // 这些HTTP方法不要求CSRF包含
         return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    function SelectIt(form_name,select_name){
+      if ( document.forms[form_name].elements[select_name].options[document.forms[form_name].elements[select_name].selectedIndex].value != "none"){
+        location = document.forms[form_name].elements[select_name].options[document.forms[form_name].elements[select_name].selectedIndex].value
+      }
     }
 </script>
 {% endblock %}

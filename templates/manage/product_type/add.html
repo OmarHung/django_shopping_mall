@@ -28,9 +28,9 @@
                         <div class="form-group col-md-6">
                             <label for="top_type">上層分類</label>
                             <select class="form-control" name="top_type" id="top_type">
-                                <option>無</option>
+                                <option value="">無</option>
                                 {% for type in select_list %}
-                                    <option value="{{ type.id }}">{{ type.title | safe }}</option>
+                                    <option value="{{ type.id }}">{{ type.label | safe }}</option>
                                 {% endfor %}
                             </select>
                         </div>
